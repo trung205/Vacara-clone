@@ -21,9 +21,13 @@
         <input type="text" placeholder="Tìm kiếm" />
       </div>
       <div class="header__authen">
-        <a href="">ĐĂNG KÝ</a>
+        <router-link :to="{ name: 'Authen', params: { type: 'sign-up' } }">
+          <a href="">ĐĂNG KÝ</a>
+        </router-link>
         <span>/</span>
-        <a href="">ĐĂNG NHẬP</a>
+        <router-link :to="{ name: 'Authen', params: { type: 'sign-in' } }">
+          <a href="">ĐĂNG NHẬP</a>
+        </router-link>
       </div>
       <div class="header__cart" @click="goToCart">
         <div class="search_mobile"></div>
@@ -37,7 +41,11 @@
       <ul>
         <template v-for="(item, index) in menu" :key="index">
           <li>
-            <a :href="item.link">{{ item.name }}</a>
+            <router-link
+              :to="{ name: 'ProductFilter', params: { query: item.type } }"
+            >
+              <a>{{ item.name }}</a>
+            </router-link>
           </li>
         </template>
       </ul>
@@ -54,17 +62,17 @@ export default {
   data() {
     return {
       menu: [
-        { name: "Giày", link: "/" },
-        { name: "Túi xách", link: "/" },
-        { name: "Balo", link: "/" },
-        { name: "Ví bóp", link: "/" },
-        { name: "Dép & Guốc", link: "/" },
-        { name: "Phụ kiện", link: "/" },
-        { name: "Giftcard", link: "/" },
-        { name: "Saleoff", link: "/" },
-        { name: "New arrival", link: "/" },
-        { name: "Giày", link: "/" },
-        { name: "Giày", link: "/" },
+        { name: "Giày", link: "/giay", type: "giay" },
+        { name: "Túi xách", link: "/tui-xach", type: "tui-xach" },
+        { name: "Balo", link: "/balo", type: "balo" },
+        { name: "Ví bóp", link: "/vi-bop", type: "vi-bop" },
+        { name: "Dép & Guốc", link: "/dep-guoc", type: "dep-guoc" },
+        { name: "Phụ kiện", link: "/", type: "home" },
+        { name: "Giftcard", link: "/", type: "home" },
+        { name: "Saleoff", link: "/", type: "home" },
+        { name: "New arrival", link: "/", type: "home" },
+        { name: "Summer Kisses", link: "/", type: "home" },
+        { name: "Tin Tức", link: "/", type: "home" },
       ],
     };
   },
