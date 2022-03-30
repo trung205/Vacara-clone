@@ -76,8 +76,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 @import "../assets/scss/components/carousel-slider.scss";
+
 </style>
 <!-- <div class="carousel__container">
     <div class="carousel__slide">

@@ -1,7 +1,7 @@
 <template>
-  <cds-card aria-labelledby="containerOfCards1">
+  <cds-card aria-labelledby="containerOfCards1" @click="goToProduct">
     <div class="card__img">
-      <img src="../assets/images/product-img-1.jpeg" alt="" />
+      <img :src="product.image" alt="" />
     </div>
     <div class="card__block">
       <div class="product__price" cds-layout="horizontal gap:md">
@@ -29,6 +29,12 @@ export default {
 
   data() {
     return {};
+  },
+
+  methods: {
+    goToProduct() {
+      this.$router.push("/product");
+    },
   },
 };
 </script>

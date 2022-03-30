@@ -7,19 +7,19 @@
       <slot></slot>
     </main>
     <footer>
-      <Footer />
+      <!-- <Footer /> -->
     </footer>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
-import Footer from "./Footer.vue";
+// import Footer from "./Footer.vue";
 export default {
   name: "LayoutCom",
   components: {
     Header,
-    Footer,
+    // Footer,
   },
 };
 </script>

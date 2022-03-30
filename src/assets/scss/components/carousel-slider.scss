@@ -45,3 +45,12 @@
   color: gray;
 }
 
+.category__section {
+  .carousel__prev {
+    transform: translate(-60%, -150%);
+  }
+
+  .carousel__next {
+    transform: translate(60%, -150%);
+  }
+}

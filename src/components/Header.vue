@@ -25,10 +25,12 @@
         <span>/</span>
         <a href="">ĐĂNG NHẬP</a>
       </div>
-      <div class="header__cart">
+      <div class="header__cart" @click="goToCart">
         <div class="search_mobile"></div>
         <img src="../assets/images/logo_cart.png" alt="" />
-        <span>(0)</span>
+        <span :class="{ text__red: getCart.data?.length !== 0 }"
+          >({{ getCart.data?.length }})</span
+        >
       </div>
     </div>
     <div class="list__menu">
@@ -45,6 +47,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "HeaderCom",
   data() {
@@ -76,6 +80,15 @@ export default {
     });
   },
 
+  computed: {
+    ...mapGetters("productCart", ["getCart"]),
+  },
+
+  methods: {
+    goToCart() {
+      this.$router.push("/product-cart");
+    },
+  },
 };
 </script>
 

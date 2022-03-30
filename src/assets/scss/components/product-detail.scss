@@ -1,0 +1,234 @@
+.product__main {
+  width: 100%;
+
+  .product__item:nth-child(1) {
+    flex: 7;
+
+    .tab {
+      border: 1px solid #f15b67;
+
+      &__header {
+        .tab__item {
+          flex: 1;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          border-bottom: 1px solid #f15b67;
+          transition: 0.3s ease;
+          cursor: pointer;
+          text-align: center;
+          font-weight: 500;
+          padding: 8px 10px;
+          background-color: #fff;
+          color: #f15b67;
+        }
+
+        .active {
+          background-color: #f15b67;
+          color: #fff;
+          pointer-events: none;
+        }
+      }
+
+      .line:not(:last-of-type) {
+        border-bottom: 1px solid #f15b67;
+      }
+
+      .line {
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        padding: 13px;
+
+        h4 {
+          flex: 1;
+          font-size: 0.8rem;
+        }
+
+        p {
+          flex: 1;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .product__item:nth-child(2) {
+    flex: 8;
+  }
+
+  .product__item:nth-child(2) {
+    padding: 0 1.5em;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .product__status {
+      font-size: 1rem;
+      padding: 3px 12px;
+      border: 2px solid #f15b67;
+      color: #f15b67;
+      font-weight: 700;
+      display: inline;
+    }
+
+    .price {
+      margin: 1.2rem 0;
+      font-size: 1.4rem;
+    }
+
+    .size__title {
+      font-size: 1rem;
+      margin-bottom: 10px;
+
+      span {
+        color: gray;
+      }
+    }
+
+    .other__color {
+      &__item {
+        position: relative;
+        cursor: pointer;
+      }
+
+      &__item:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        opacity: 0;
+        transition: 0.3s ease;
+        border: 1px solid #f15b67;
+      }
+
+      &__item:hover:before {
+        opacity: 1;
+      }
+
+      .active {
+        border: 1px solid #f15b67;
+      }
+    }
+
+    .btn__cart {
+      --color: #f15b67;
+      --border-color: #f15b67;
+      --font-size: 0.8rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .size {
+    margin-bottom: 1.5rem;
+
+    &__block {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid #f15b67;
+      margin-right: 8px;
+      font-weight: 600;
+    }
+
+    &__block:hover {
+      background: #f15b67;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .out__of__stock {
+      position: relative;
+      pointer-events: none;
+    }
+
+    .out__of__stock::before {
+      position: absolute;
+      width: 1px;
+      height: 55px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      content: "";
+      background: #f15b67;
+    }
+
+    .active {
+      background: #f15b67;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .amount {
+    margin-bottom: 1.5rem;
+    span {
+      padding: 0.2em 10px;
+      border-top: 1px solid #f15b67;
+      border-left: 1px solid #f15b67;
+      border-bottom: 1px solid #f15b67;
+    }
+
+    span:nth-child(3) {
+      border-right: 1px solid #f15b67;
+      padding: 0.2em 12px;
+    }
+
+    span:nth-child(2) {
+      padding: 0.2em 20px;
+    }
+
+    span:nth-child(1) {
+      padding: 0.2em 14px;
+    }
+
+    .minus,
+    .plus {
+      cursor: pointer;
+    }
+
+    .disable {
+      pointer-events: none;
+    }
+  }
+}
+
+.action__toast {
+  position: fixed;
+  width: 450px;
+  height: 250px;
+  background-color: #000000b3;
+  // opacity: 0.5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .toast {
+    height: 100%;
+
+    &__container {
+      height: 100%;
+      padding-top: 10%;
+
+      .action__toast__icon {
+        width: 70px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: #12e0d6;
+      }
+    }
+
+    &__text {
+      color: #fff;
+      text-align: center;
+      padding: 30px 0;
+    }
+  }
+}

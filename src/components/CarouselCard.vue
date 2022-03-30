@@ -35,4 +35,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" >
+@import "../assets/scss/components/carousel-slider.scss";
+</style>

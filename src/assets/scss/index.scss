@@ -24,3 +24,11 @@ a {
 a:hover {
   color: $red-primary !important;
 }
+
+.d__flex {
+  display: flex;
+}
+
+.text__red {
+  color: $red-primary;
+}
