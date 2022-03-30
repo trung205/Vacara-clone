@@ -1,0 +1,27 @@
+.category__section {
+  position: relative;
+}
+.title__block {
+  color: #f15b67;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  margin: 2rem 0;
+}
+
+.show__all {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 7px;
+  right: 15px;
+  font-size: 16px;
+  color: grey;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.show__all:hover {
+  color: #f15b67;
+}

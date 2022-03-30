@@ -1,0 +1,64 @@
+.card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid #f15b67;
+
+  &__header {
+    padding: 1rem !important;
+    border-bottom: 1px solid #f15b67;
+    width: 100%;
+
+    &__flex {
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__body {
+    width: 100%;
+
+    table {
+      width: 100%;
+
+      tr {
+        align-items: center !important;
+      }
+
+      td {
+        text-align: center;
+        align-content: center;
+
+        .amount {
+          span {
+            padding: 0.2em 10px;
+            border-top: 1px solid #f15b67;
+            border-left: 1px solid #f15b67;
+            border-bottom: 1px solid #f15b67;
+          }
+
+          span:nth-child(3) {
+            border-right: 1px solid #f15b67;
+            padding: 0.2em 12px;
+          }
+
+          span:nth-child(2) {
+            padding: 0.2em 20px;
+          }
+
+          span:nth-child(1) {
+            padding: 0.2em 14px;
+          }
+
+          .minus,
+          .plus {
+            cursor: pointer;
+          }
+
+          .disable {
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
