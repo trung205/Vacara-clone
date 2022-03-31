@@ -70,6 +70,20 @@
     a:hover {
       color: #f15b67;
     }
+
+    .user__name {
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        border-radius: 50%;
+      }
+
+      p {
+        text-transform: unset !important;
+        margin-left: 10px;
+      }
+    }
   }
 
   &__cart {

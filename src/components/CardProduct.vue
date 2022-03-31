@@ -1,5 +1,8 @@
 <template>
-  <cds-card aria-labelledby="containerOfCards1" @click="goToProduct">
+  <cds-card
+    aria-labelledby="containerOfCards1"
+    @click="goToProduct(product.id)"
+  >
     <div class="card__img">
       <img :src="product.image" alt="" />
     </div>
@@ -32,8 +35,8 @@ export default {
   },
 
   methods: {
-    goToProduct() {
-      this.$router.push("/product");
+    goToProduct(id) {
+      this.$router.push(`/product/${id}`);
     },
   },
 };

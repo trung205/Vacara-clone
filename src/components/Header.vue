@@ -21,13 +21,28 @@
         <input type="text" placeholder="Tìm kiếm" />
       </div>
       <div class="header__authen">
-        <router-link :to="{ name: 'Authen', params: { type: 'sign-up' } }">
-          <a href="">ĐĂNG KÝ</a>
-        </router-link>
-        <span>/</span>
-        <router-link :to="{ name: 'Authen', params: { type: 'sign-in' } }">
-          <a href="">ĐĂNG NHẬP</a>
-        </router-link>
+        <template v-if="!token">
+          <router-link :to="{ name: 'Authen', params: { type: 'sign-up' } }">
+            <a href="">ĐĂNG KÝ</a>
+          </router-link>
+          <span>/</span>
+          <router-link :to="{ name: 'Authen', params: { type: 'sign-in' } }">
+            <a href="">ĐĂNG NHẬP</a>
+          </router-link>
+        </template>
+        <template v-else>
+          <router-link :to="{ name: 'ProductCart' }">
+            <div class="d__flex user__name">
+              <img
+                src="../assets/images/avatar.jpeg"
+                alt=""
+                width="50"
+                height="50"
+              />
+              <p>{{user.name}}</p>
+            </div>
+          </router-link>
+        </template>
       </div>
       <div class="header__cart" @click="goToCart">
         <div class="search_mobile"></div>
@@ -56,6 +71,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { getToken, getUser } from "../common/token";
 
 export default {
   name: "HeaderCom",
@@ -74,6 +90,8 @@ export default {
         { name: "Summer Kisses", link: "/", type: "home" },
         { name: "Tin Tức", link: "/", type: "home" },
       ],
+      token: getToken(),
+      user: getUser(),
     };
   },
 

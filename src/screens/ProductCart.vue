@@ -5,7 +5,7 @@
         <div class="card__header">
           <div class="card__header__flex d__flex">
             <h5>Tổng</h5>
-            <cds-button status="success">Trống</cds-button>
+            <cds-button status="success" @click="logOut">Đăng xuất</cds-button>
           </div>
         </div>
         <div class="card__body">
@@ -25,12 +25,12 @@
                 <tr cds-layout="grid cols@sm:6 cols@md:2 gap:md">
                   <td>
                     <img
-                      src="https://shopping-phibachien.herokuapp.com/static/media/product-detail-1.8f3a9227.jpg"
+                      :src="item.product.image"
                       alt=""
                     />
                   </td>
                   <td>{{ item.size }}</td>
-                  <td>{{ item.price }}</td>
+                  <td>{{ item.product.price }}</td>
                   <!-- <td>{{ item.count }}</td> -->
                   <td>
                     <div class="amount">
@@ -44,7 +44,7 @@
                       <span class="plus" @click="item.count++">+</span>
                     </div>
                   </td>
-                  <td>{{ item.count * item.price }}</td>
+                  <td>{{ item.count * item.product.price }}</td>
                   <td>
                     <cds-button status="danger" @click="deleteCart(item)"
                       >Xóa</cds-button
@@ -63,17 +63,27 @@
 <script>
 import Layout from "../components/Layouts.vue";
 import { mapActions, mapGetters } from "vuex";
+import { removeUserSession } from "../common/token";
 
 export default {
   name: "ProductCart",
   components: {
     Layout,
   },
+
+  mounted() {
+    console.log(this.getCart);
+  },
   computed: {
     ...mapGetters("productCart", ["getCart"]),
   },
   methods: {
     ...mapActions("productCart", ["deleteCart"]),
+    logOut() {
+      removeUserSession();
+      this.$router.push("/");
+      alert("Đăng xuất thành công");
+    },
   },
 };
 </script>

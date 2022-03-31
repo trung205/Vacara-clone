@@ -9,7 +9,7 @@
       <div class="product__main d__flex">
         <div class="product__item" cds-layout="grid gap:lg">
           <div class="product__image" cds-layout="col:12">
-            <img src="../assets/images/product-detail-1.jpg" alt="" />
+            <img :src="filterProduct.image" alt="" />
           </div>
           <div class="product__image" cds-layout="col:6">
             <img src="../assets/images/product-detail-2.jpeg" alt="" />
@@ -82,7 +82,7 @@
         </div>
         <div class="product__item">
           <h2 class="title">
-            Giày Bít Mũi Nhọn Satin Phối Nơ - BMN 0418 - Màu Hồng
+            {{ filterProduct.product_title }}
           </h2>
           <div class="product__status">NEW</div>
           <div class="price">545.000 ₫</div>
@@ -188,17 +188,19 @@ export default {
   data() {
     return {
       cart: {
+        id: this.$route.params.id,
         size: "Tất cả",
         count: 1,
         color: null,
         price: 545,
+        product: null,
       },
       sizeList: SizeList,
 
       colorList: ColorList,
 
       tagInfo: true,
-      array: Product,
+      array: [...Product],
       popup: false,
     };
   },
@@ -223,6 +225,15 @@ export default {
       setTimeout(() => {
         this.popup = false;
       }, 2000);
+    },
+  },
+
+  computed: {
+    filterProduct() {
+      const product = this.array.filter((el) => el.id == this.$route.params.id);
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.cart.product = product[0];
+      return product[0];
     },
   },
 };
